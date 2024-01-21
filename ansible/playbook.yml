@@ -1,0 +1,5 @@
+---
+- name: upgrade
+- name: install docker
+- name: install docker-compose
+- name: start postgres and pgadmin services
