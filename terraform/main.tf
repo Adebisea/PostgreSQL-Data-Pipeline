@@ -74,7 +74,7 @@ resource "aws_key_pair" "ec2_keypair" {
 }
 
 
-resource "aws_instance" "ec2_userbehavior" {
+resource "aws_instance" "ec2_retail" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = aws_key_pair.ec2_keypair.key_name
