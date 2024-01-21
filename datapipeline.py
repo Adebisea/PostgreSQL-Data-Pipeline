@@ -43,7 +43,7 @@ class Load_Data():
         connect.close()
 
     def create_table(self):
-
+        #create onlineretail table
         query = '''CREATE TABLE IF NOT EXISTS onlineretail(
                         InvoiceNo varchar(10),
                         StockCode varchar(25),
@@ -56,7 +56,13 @@ class Load_Data():
         
         self.execute_queries(query)
 
+    def load_data(self):
+
+        #load data to database
+        query = '''COPY onlineretail FROM 'OnlineRetail.csv' DELIMITER ',' CSV HEADER'''
         
+        self.execute_queries(query)
+
 
 if __name__ == "__main__":
 
@@ -66,4 +72,7 @@ if __name__ == "__main__":
     user= os.getenv('user')
     password= os.getenv('password')
 
+    migrate = Load_Data(host,port,dbname,user,password)
+    migrate.create_table()
+    migrate.load_data()
 
