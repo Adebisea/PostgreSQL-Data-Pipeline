@@ -14,9 +14,9 @@ provider "aws" {
 }
 
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  description = "Allow SSH inbound traffic"
+resource "aws_security_group" "allow_traffic" {
+  name        = "allow_traffic"
+  description = "Allow inbound traffic"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -45,13 +45,6 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks = [var.vpc_cidr_block]
   }
 
-  egress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = [var.vpc_cidr_block]
-  }
-
 }
 
 
@@ -70,18 +63,24 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-data "aws_key_pair" "test_keypair" {
-  key_name           = "userbehav1"
+resource "tls_private_key" "tls_gen_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "ec2_keypair" {
+  key_name_prefix = "retail_key"
+  public_key      = tls_private_key.tls_gen_key.public_key_openssh
 }
 
 
 resource "aws_instance" "ec2_userbehavior" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
-  key_name               = data.aws_key_pair.test_keypair.key_name
+  key_name               = aws_key_pair.ec2_keypair.key_name
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   tags = {
     "key" = "project"
-    "values" = "userbehav"
+    "values" = "retail_ec2"
   }
 }
