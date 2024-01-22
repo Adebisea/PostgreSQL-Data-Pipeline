@@ -63,21 +63,16 @@ data "aws_ami" "ubuntu" {
   }
 }
 
-resource "tls_private_key" "tls_gen_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
 
-resource "aws_key_pair" "ec2_keypair" {
-  key_name_prefix = "retail_key"
-  public_key      = tls_private_key.tls_gen_key.public_key_openssh
+data "aws_key_pair" "ec2_keypair" {
+  key_name           = "userbehav1"
 }
 
 
 resource "aws_instance" "ec2_retail" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
-  key_name               = aws_key_pair.ec2_keypair.key_name
+  key_name               = data.aws_key_pair.ec2_keypair.key_name
   vpc_security_group_ids = [aws_security_group.allow_traffic.id]
   tags = {
     "key" = "project"
