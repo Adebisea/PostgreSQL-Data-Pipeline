@@ -5,8 +5,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin_password
       - POSTGRES_DB=online_purchase
-    volumes:
-      - "/home/ubuntu/PostgreSQL-Data-Pipeline/data:/var/lib/postgresql/data"
+    # volumes:
+    #   - "/home/ubuntu/PostgreSQL-Data-Pipeline/data:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
 
