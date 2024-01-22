@@ -25,8 +25,14 @@
       sudo chmod +x /usr/local/bin/docker-compose
       docker-compose --version
       
+  - name: checkout git
+    become: yes
+    shell: |
+      git clone https://github.com/Adebisea/PostgreSQL-Data-Pipeline.git
+
   - name: start postgres and pgadmin services
     become: yes
     shell: |
       cd PostgreSQL-Data-Pipeline/pgsetup
       sudo docker-compose -f docker-compose.yml up -d
+      sudo docker cp /home/ubuntu/PostgreSQL-Data-Pipeline/data/OnlineRetail.csv pgsetup_pgdatabase_1:/var/lib/postgresql/data
