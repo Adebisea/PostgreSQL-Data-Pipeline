@@ -24,7 +24,7 @@
       sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
       sudo chmod +x /usr/local/bin/docker-compose
       docker-compose --version
-      
+
   - name: checkout git
     become: yes
     shell: |
@@ -35,4 +35,4 @@
     shell: |
       cd PostgreSQL-Data-Pipeline/pgsetup
       sudo docker-compose -f docker-compose.yml up -d
-      sudo docker cp /home/ubuntu/PostgreSQL-Data-Pipeline/data/OnlineRetail.csv pgsetup_pgdatabase_1:/var/lib/postgresql/data
+      # sudo docker cp /home/ubuntu/PostgreSQL-Data-Pipeline/data/OnlineRetail.csv pgsetup_pgdatabase_1:/var/lib/postgresql/data
