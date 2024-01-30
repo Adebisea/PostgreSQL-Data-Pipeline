@@ -9,11 +9,14 @@ services:
       - POSTGRES_DB=online_purchase
       - PGDATA=/tmp
     volumes:
-      - "/home/ubuntu/PostgreSQL-Data-Pipeline/data:/var/lib/postgresql/data"
+      - "/home/ubuntu/PostgreSQL-Data-Pipeline/pgdata:/var/lib/postgresql/data"
+      - "/home/ubuntu/PostgreSQL-Data-Pipeline/data:/"
+      
     ports:
       - "5432:5432"
 
   pgadmin:
+    restart: always
     image: dpage/pgadmin4
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
