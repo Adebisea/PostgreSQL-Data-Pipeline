@@ -67,8 +67,8 @@ def copy_data_to_db():
                 COPY greentrips FROM '/var/lib/postgresql/data/taxi+_zone_lookup.csv' DELIMITER ',' CSV HEADER
             '''
     
-    for query in zip(query_green,query_taxizone):
-        create_conn(query)
+    create_conn(query_taxizone)
+    create_conn(query_green)
 
 
 def main():
