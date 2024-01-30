@@ -49,4 +49,32 @@ def create_table_greentrips():
                     "congestion_surcharge" REAL)'''
     create_conn(query)
 
+def create_table_taxizone():
+    
+    query = ''' CREATE TABLE IF NOT EXISTS "taxizone" (
+                    "LocationID" INTEGER,
+                    "Borough" VARCHAR(256),
+                    "Zone" VARCHAR(256),
+                    "service_zone" VARCHAR(256)
+                    )'''
+    create_conn(query)
 
+def copy_data_to_db():
+    query_green = '''
+                COPY greentrips FROM '/var/lib/postgresql/data/green_tripdata_2019-09.csv' DELIMITER ',' CSV HEADER
+            '''
+    query_taxizone = '''
+                COPY greentrips FROM '/var/lib/postgresql/data/taxi+_zone_lookup.csv' DELIMITER ',' CSV HEADER
+            '''
+    
+    for query in zip(query_green,query_taxizone):
+        create_conn(query)
+
+
+def main():
+    create_table_greentrips()
+    create_table_taxizone()
+    copy_data_to_db()
+
+if __name__ == "__main__":
+    main()
