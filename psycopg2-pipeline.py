@@ -59,7 +59,7 @@ class Load_Data():
     def load_data(self):
 
         #load data to database
-        query = '''COPY onlineretail FROM '/var/lib/postgresql/OnlineRetail.csv' DELIMITER ',' CSV HEADER'''
+        query = '''COPY onlineretail FROM '/tmp/OnlineRetail.csv' DELIMITER ',' CSV HEADER'''
         
         self.execute_queries(query)
 
