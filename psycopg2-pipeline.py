@@ -59,20 +59,23 @@ class Load_Data():
     def load_data(self):
 
         #load data to database
-        query = '''COPY online_purchase.public.onlineretail FROM 'OnlineRetail.csv' DELIMITER ',' CSV HEADER'''
+        query = '''COPY onlineretail FROM '/var/lib/postgresql/OnlineRetail.csv' DELIMITER ',' CSV HEADER'''
         
         self.execute_queries(query)
 
 
+
+
+host= os.getenv('host')
+port= os.getenv('port')
+dbname= os.getenv('dbname')
+user= os.getenv('user')
+password= os.getenv('password')
+
+migrate = Load_Data(host,port,dbname,user,password)
+
 if __name__ == "__main__":
 
-    host= os.getenv('host')
-    port= os.getenv('port')
-    dbname= os.getenv('dbname')
-    user= os.getenv('user')
-    password= os.getenv('password')
-
-    migrate = Load_Data(host,port,dbname,user,password)
     migrate.create_table()
     migrate.load_data()
 
