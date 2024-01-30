@@ -36,3 +36,16 @@
       cd PostgreSQL-Data-Pipeline/pgsetup
       sudo docker-compose -f docker-compose.yml up -d
       # sudo docker cp /home/ubuntu/PostgreSQL-Data-Pipeline/data/OnlineRetail.csv pgsetup_pgdatabase_1:/var/lib/postgresql/data
+
+  - name: install pip
+    become: yes
+    shell: |
+      sudo apt install python3-pip -y
+
+  - name: install python requirements
+    become: yes
+    shell: |
+      cd PostgreSQL-Data-Pipeline
+      pip install -r requirements.txt
+
+  
