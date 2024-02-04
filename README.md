@@ -75,13 +75,14 @@ Note: This command will create an onlineretail table in the postgresdb and migra
 
 - To connect and migrate using the sqlalchemy client, run;
   
-      ```
+  ```
      python3 sqlalchemy_pipeline.py
-      ```
+  ```
   
 Note: This command will create two tables(greentrips and taxizone) and migrate the `green_tripdata_2019-09.csv` and `taxi+_zone_lookup.csv` to their respective tables
 
 ### Clean up
+
     To clean up and destroy the infrastructure, Navigate to the terraform directory and run:
     ```
     terraform destroy --auto-approve
