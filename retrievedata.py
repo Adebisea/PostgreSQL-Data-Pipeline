@@ -10,7 +10,7 @@ def retrieve_UKdata():
             '''    
     df = pd.read_sql(sql=query,con=engine)
 
-    #save data from United kingdom to filegit 
+    #save data from United kingdom to file
     df.to_csv('ukretail.csv', index=False)
 
 
