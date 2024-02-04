@@ -74,10 +74,13 @@ Note: The terraform apply command after execution will output the newly created 
 Note: This command will create an onlineretail table in the postgresdb and migrate the `onlineretail.csv`
 
 - To connect and migrate using the sqlalchemy client, run;
+  
       ```
      python3 sqlalchemy_pipeline.py
       ```
-Note: This command will create two tables(greentrips and taxizone) and migrate the `green_tripdata_2019-09.csv` and `taxi+_zone_lookup.csv` to their respective tables.qq
+  
+Note: This command will create two tables(greentrips and taxizone) and migrate the `green_tripdata_2019-09.csv` and `taxi+_zone_lookup.csv` to their respective tables
+
 ### Clean up
     To clean up and destroy the infrastructure, Navigate to the terraform directory and run:
     ```
