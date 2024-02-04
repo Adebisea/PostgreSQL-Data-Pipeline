@@ -39,7 +39,8 @@ Create config file for access to aws
     terraform apply --auto-approve
     ```
     The terraform apply command deploys the infrastructure
-<br>
+
+
 **Note: The terraform apply command after execution will output the newly created ec2 instance ip address, copy and keep it in a safe place, you'll need it in the next step.**
 <br><br>
 
