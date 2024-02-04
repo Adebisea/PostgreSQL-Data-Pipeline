@@ -34,7 +34,9 @@ The demonstration includes utilizing two distinct Python clients, namely psycopg
     ```
 
 ### Usage
-1. To deploy the infrastructure, navigate to the Terraform directory and run:
+
+1. Create a key pair on the aws console and name it `pgmig.pem`
+2. To deploy the infrastructure, navigate to the Terraform directory and run:
     ```
     terraform init
     ```
@@ -45,7 +47,14 @@ The demonstration includes utilizing two distinct Python clients, namely psycopg
     ```
     The terraform apply command deploys the infrastructure
     
-    To clean up and destroy the infrastructure, run:
+    To clean up and destroy the infrastructure later, run:
     ```
     terraform destroy --auto-approve
     ```
+Note: The terraform apply command after execution will output the newly created ec2 instance ip address, copy and keep it in a safe place, you'll need it in the next step.
+
+2. Run Ansible playbook to automate dependencies installation
+    - Navigate to the ansble directory and edit the inventory.ini file.
+    - 
+        ```
+        aws ansible_host=52.91.241.219 ansible_port=22 ansible_user=ubuntu        ansible_ssh_private_key_file=~/userb
