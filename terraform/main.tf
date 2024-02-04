@@ -65,7 +65,7 @@ data "aws_ami" "ubuntu" {
 
 
 data "aws_key_pair" "ec2_keypair" {
-  key_name           = "pgmig  "
+  key_name           = "pgmig"
 }
 
 
