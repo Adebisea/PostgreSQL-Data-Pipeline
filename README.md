@@ -29,7 +29,7 @@ Create config file for access to aws
 ### Usage
 
 1. Create a key pair on the aws console and name it `pgmig.pem`
-2. To deploy the infrastructure, navigate to the Terraform directory and run:
+2. To deploy the infrastructure, navigate to the terraform directory and run:
     ```
     terraform init
     ```
