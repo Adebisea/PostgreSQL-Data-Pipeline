@@ -3,7 +3,8 @@
 ## Description
 This project demonstrates the process of transferring CSV data from a local environment to a PostgreSQL server deployed on Docker, which is hosted on an EC2 instance.
 The demonstration includes utilizing two distinct Python clients, namely psycopg2 and sqlalchemy, showcasing alternative approaches for seamless data migration to a PostgreSQL database.
-C:\Users\DELL\Documents\Projects\postgresql_datapipeline\etl_process.png
+
+![Alt text](https://github.com/Adebisea/PostgreSQL-Data-Pipeline/blob/f3e7bfbc09c81fdb9faa100a48820859ea62d0f0/etl_process.png)
 
 
 ## Getting Started
