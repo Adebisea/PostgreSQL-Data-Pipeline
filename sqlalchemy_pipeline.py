@@ -61,10 +61,10 @@ def create_table_taxizone():
 
 def copy_data_to_db():
     query_green = '''
-                COPY greentrips FROM '/var/lib/postgresql/data/green_tripdata_2019-09.csv' DELIMITER ',' CSV HEADER
+                COPY greentrips FROM '/tmp/green_tripdata_2019-09.csv' DELIMITER ',' CSV HEADER
             '''
     query_taxizone = '''
-                COPY greentrips FROM '/var/lib/postgresql/data/taxi+_zone_lookup.csv' DELIMITER ',' CSV HEADER
+                COPY taxizone FROM '/tmp/taxi+_zone_lookup.csv' DELIMITER ',' CSV HEADER
             '''
     
     create_conn(query_taxizone)
