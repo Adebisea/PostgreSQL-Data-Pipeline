@@ -35,7 +35,7 @@
     shell: |
       cd PostgreSQL-Data-Pipeline/pgsetup
       sudo docker-compose -f docker-compose.yml up -d
-      # sudo docker cp /home/ubuntu/PostgreSQL-Data-Pipeline/data/OnlineRetail.csv pgsetup_pgdatabase_1:/var/lib/postgresql/data
+     
 
   - name: install pip
     become: yes
