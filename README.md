@@ -43,9 +43,9 @@ Create config file for access to aws
 Note: The terraform apply command after execution will output the newly created ec2 instance ip address, copy and keep it in a safe place, you'll need it in the next step.
 
 3. Run Ansible playbook to automate dependencies installation
-    - Navigate to the ansble directory and edit the inventory.ini file.
-    - replace <instance_ip> in `ansible_host=<instance_ip>` with the instance ip gotten from step 2
-    - replace <keypair_file_path> in `ansible_ssh_private_key_file=<keypair_file_path>` with the path to the keypair created in step 1
+    - Navigate to the ansible directory and edit the inventory.ini file.
+    - replace `<instance_ip>` in `ansible_host=<instance_ip>` with the instance ip gotten from step 2
+    - replace `<keypair_file_path>` in `ansible_ssh_private_key_file=<keypair_file_path>` with the path to the keypair created in step 1
     - Now run;
       
         ```
@@ -57,7 +57,7 @@ Note: The terraform apply command after execution will output the newly created 
       ```
       ssh -i <keypair_file_path> ubuntu@<instance_ip>
       ```
-      replace <keypair_file_path> and <instance_ip> with the appropriate values
+      replace `<keypair_file_path>` and `<instance_ip>` with the appropriate values
 
 5. Migrate csv files to Postgres db
   - Navigate to PostgreSQL-Data-Pipeline directory on the instance.
